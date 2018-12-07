@@ -1,194 +1,170 @@
 package com.enquero.prowessreef.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
-/**
- * Employee entity. @author MyEclipse Persistence Tools
- */
 @Entity
-@Table(name = "employee", schema = "public")
+public class Employee {
 
-public class Employee implements java.io.Serializable {
 
-	// Fields
+  @Id
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_id_seq")
+  @SequenceGenerator(name = "employee_id_seq", sequenceName = "employee_id_seq", allocationSize = 1)
+  @Column(name = "EMPLOYEE_ID", unique = true, nullable = false)
+  private Integer employeeId;
+  @JsonProperty
+  private String name;
+  @JsonProperty
+  private Integer emailId;
+  @JsonProperty
+  private Integer phoneNumber;
+  @JsonProperty
+  private String flag;
+  @JsonProperty
+  private String gender;
+  @JsonProperty
+  private String createdBy;
+  @JsonProperty
+  private Date creationDate;
+  @JsonProperty
+  private Date updatedBy;
+  @JsonProperty
+  private Date updatedDate;
+  @JsonProperty
+//  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "")
+//  private Set<SkillMatrix> skillMatrixes = new HashSet<SkillMatrix>(0);
 
-	private Integer employeeId;
-	private String name;
-	private Integer emailId;
-	private Integer phoneNumber;
-	private String flag;
-	private String gender;
-	private String createdBy;
-	private Date creationDate;
-	private Date updatedBy;
-	private Date updatedDate;
-	private Set<SkillMatrix> skillMatrixes = new HashSet<SkillMatrix>(0);
-	private Set<Address> addresses = new HashSet<Address>(0);
+  public Integer getEmployeeId() {
+    return employeeId;
+  }
 
-	// Constructors
+  public void setEmployeeId(Integer employeeId) {
+    this.employeeId = employeeId;
+  }
 
-	/** default constructor */
-	public Employee() {
-	}
+  public String getName() {
+    return name;
+  }
 
-	/** minimal constructor */
-	public Employee(Integer employeeId) {
-		this.employeeId = employeeId;
-	}
+  public void setName(String name) {
+    this.name = name;
+  }
 
-	/** full constructor */
-	public Employee(Integer employeeId, String name, Integer emailId, Integer phoneNumber, String flag, String gender,
-			String createdBy, Date creationDate, Date updatedBy, Date updatedDate, Set<SkillMatrix> skillMatrixes,
-			Set<Address> addresses) {
-		this.employeeId = employeeId;
-		this.name = name;
-		this.emailId = emailId;
-		this.phoneNumber = phoneNumber;
-		this.flag = flag;
-		this.gender = gender;
-		this.createdBy = createdBy;
-		this.creationDate = creationDate;
-		this.updatedBy = updatedBy;
-		this.updatedDate = updatedDate;
-		this.skillMatrixes = skillMatrixes;
-		this.addresses = addresses;
-	}
+  public Integer getEmailId() {
+    return emailId;
+  }
 
-	// Property accessors
-	@Id
+  public void setEmailId(Integer emailId) {
+    this.emailId = emailId;
+  }
 
-	@Column(name = "employee_id", unique = true, nullable = false)
+  public Integer getPhoneNumber() {
+    return phoneNumber;
+  }
 
-	public Integer getEmployeeId() {
-		return this.employeeId;
-	}
+  public void setPhoneNumber(Integer phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
 
-	public void setEmployeeId(Integer employeeId) {
-		this.employeeId = employeeId;
-	}
+  public String getFlag() {
+    return flag;
+  }
 
-	@Column(name = "name")
+  public void setFlag(String flag) {
+    this.flag = flag;
+  }
 
-	public String getName() {
-		return this.name;
-	}
+  public String getGender() {
+    return gender;
+  }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+  public void setGender(String gender) {
+    this.gender = gender;
+  }
 
-	@Column(name = "email_id")
+  public String getCreatedBy() {
+    return createdBy;
+  }
 
-	public Integer getEmailId() {
-		return this.emailId;
-	}
+  public void setCreatedBy(String createdBy) {
+    this.createdBy = createdBy;
+  }
 
-	public void setEmailId(Integer emailId) {
-		this.emailId = emailId;
-	}
+  public Date getCreationDate() {
+    return creationDate;
+  }
 
-	@Column(name = "phone_number")
+  public void setCreationDate(Date creationDate) {
+    this.creationDate = creationDate;
+  }
 
-	public Integer getPhoneNumber() {
-		return this.phoneNumber;
-	}
+  public Date getUpdatedBy() {
+    return updatedBy;
+  }
 
-	public void setPhoneNumber(Integer phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
+  public void setUpdatedBy(Date updatedBy) {
+    this.updatedBy = updatedBy;
+  }
 
-	@Column(name = "flag")
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    Employee employee = (Employee) o;
+    return Objects.equals(getEmployeeId(), employee.getEmployeeId()) &&
+        Objects.equals(getName(), employee.getName()) &&
+        Objects.equals(getEmailId(), employee.getEmailId()) &&
+        Objects.equals(getPhoneNumber(), employee.getPhoneNumber()) &&
+        Objects.equals(getFlag(), employee.getFlag()) &&
+        Objects.equals(getGender(), employee.getGender()) &&
+        Objects.equals(getCreatedBy(), employee.getCreatedBy()) &&
+        Objects.equals(getCreationDate(), employee.getCreationDate()) &&
+        Objects.equals(getUpdatedBy(), employee.getUpdatedBy()) &&
+        Objects.equals(getUpdatedDate(), employee.getUpdatedDate());
+//        Objects.equals(getSkillMatrixes(), employee.getSkillMatrixes()) &&
+//        Objects.equals(getAddresses(), employee.getAddresses());
+  }
 
-	public String getFlag() {
-		return this.flag;
-	}
+  @Override
+  public int hashCode() {
+    return Objects.hash(getEmployeeId(), getName(), getEmailId(), getPhoneNumber(), getFlag(), getGender(), getCreatedBy(), getCreationDate(), getUpdatedBy(), getUpdatedDate() /*,getSkillMatrixes()*//*, getAddresses()*/);
+  }
 
-	public void setFlag(String flag) {
-		this.flag = flag;
-	}
+  public Date getUpdatedDate() {
+    return updatedDate;
+  }
 
-	@Column(name = "gender")
+  public void setUpdatedDate(Date updatedDate) {
+    this.updatedDate = updatedDate;
+  }
 
-	public String getGender() {
-		return this.gender;
-	}
+//  public Set<SkillMatrix> getSkillMatrixes() {
+//    return skillMatrixes;
+//  }
+//
+//  public void setSkillMatrixes(Set<SkillMatrix> skillMatrixes) {
+//    this.skillMatrixes = skillMatrixes;
+//  }
 
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
+//  public Set<Address> getAddresses() {
+//    return addresses;
+//  }
+//
+//  public void setAddresses(Set<Address> addresses) {
+//    this.addresses = addresses;
+//  }
+//
+//  @JsonProperty
+//  private Set<Address> addresses = new HashSet<Address>(0);
 
-	@Column(name = "created_by")
-
-	public String getCreatedBy() {
-		return this.createdBy;
-	}
-
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
-
-	@Temporal(TemporalType.DATE)
-	@Column(name = "creation_date", length = 13)
-
-	public Date getCreationDate() {
-		return this.creationDate;
-	}
-
-	public void setCreationDate(Date creationDate) {
-		this.creationDate = creationDate;
-	}
-
-	@Temporal(TemporalType.DATE)
-	@Column(name = "updated_by", length = 13)
-
-	public Date getUpdatedBy() {
-		return this.updatedBy;
-	}
-
-	public void setUpdatedBy(Date updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
-	@Temporal(TemporalType.DATE)
-	@Column(name = "updated_date", length = 13)
-
-	public Date getUpdatedDate() {
-		return this.updatedDate;
-	}
-
-	public void setUpdatedDate(Date updatedDate) {
-		this.updatedDate = updatedDate;
-	}
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "employee")
-
-	public Set<SkillMatrix> getSkillMatrixes() {
-		return this.skillMatrixes;
-	}
-
-	public void setSkillMatrixes(Set<SkillMatrix> skillMatrixes) {
-		this.skillMatrixes = skillMatrixes;
-	}
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "employee")
-
-	public Set<Address> getAddresses() {
-		return this.addresses;
-	}
-
-	public void setAddresses(Set<Address> addresses) {
-		this.addresses = addresses;
-	}
-
-}
+  }

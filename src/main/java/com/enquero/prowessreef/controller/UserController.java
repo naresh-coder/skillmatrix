@@ -15,15 +15,15 @@ public class UserController {
   @Autowired
   private EmployeeService employeeService;
 
-  @GetMapping("{emp_id}/or/{name}")
+  @GetMapping("{emp_id}")
   @ResponseBody
-  public ResponseEntity<Employee> getUserDetails(@PathVariable("emp_id") Integer userId, @PathVariable("name") String name) {
-   return new ResponseEntity<>(employeeService.findByEmployeeIdOrName(userId, name),HttpStatus.OK);
+  public ResponseEntity<Employee> getEmployeeByEmpIdOrName(@PathVariable("emp_id") Integer userId) {
+   return new ResponseEntity<>(employeeService.findByEmployeeIdOrName(userId),HttpStatus.OK);
   }
 
   @PutMapping("{emp_id")
-  public ResponseEntity<String> updateUser(@PathVariable("emp_id") Integer userId, @RequestBody Employee employee) {
-    return new ResponseEntity<String>(employeeService.updateEmployee(userId, employee), HttpStatus.OK);
+  public ResponseEntity<String> updateEmployeeByEmpId(@PathVariable("emp_id") Integer userId, @RequestBody Employee employee) {
+    return new ResponseEntity<>(employeeService.updateEmployee(userId, employee), HttpStatus.OK);
   }
 
 }
