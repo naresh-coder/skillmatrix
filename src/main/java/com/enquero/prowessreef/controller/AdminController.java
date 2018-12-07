@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 @RestController
 @RequestMapping("/admin/")
 public class AdminController {
@@ -15,8 +17,13 @@ public class AdminController {
   @Autowired
   EmployeeService employeeService;
 
+  private static final AtomicInteger count = new AtomicInteger(0);
+
+
   @PostMapping("employee")
   public ResponseEntity<Void> createEmployee(@RequestBody Employee employee) {
+
+    employee.setEmployeeId(count.getAndIncrement());
     employeeService.createUser(employee);
     return new ResponseEntity<>(HttpStatus.OK);
   }
