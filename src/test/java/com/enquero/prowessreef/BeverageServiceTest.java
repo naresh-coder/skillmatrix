@@ -1,11 +1,8 @@
-package com.cofeeshop;
+package com.enquero.skillmanagement;
 
-import com.cofeeshop.model.Beverage;
-import com.cofeeshop.model.Customer;
-import com.cofeeshop.repository.BeverageRepository;
-import com.cofeeshop.repository.CustomerRepository;
-import com.cofeeshop.service.BeverageService;
-import com.cofeeshop.service.CustomerService;
+import com.enquero.skillmanagement.model.Beverage;
+import com.enquero.skillmanagement.repository.BeverageRepository;
+import com.enquero.skillmanagement.service.BeverageService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

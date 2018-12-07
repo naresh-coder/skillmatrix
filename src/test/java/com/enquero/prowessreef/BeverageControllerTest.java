@@ -1,5 +1,4 @@
-package com.cofeeshop;
-
+package com.enquero.skillmanagement;
 
 import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.builder.RequestSpecBuilder;
@@ -17,7 +16,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.util.Assert;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class CustomerControllerTest {
+public class BeverageControllerTest {
+
     @LocalServerPort
     int port;
 
@@ -30,4 +30,5 @@ public class CustomerControllerTest {
     @Test
     public void contextLoads() {
     }
+
 }

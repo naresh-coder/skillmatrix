@@ -1,8 +1,7 @@
-package com.cofeeshop.controller;
+package com.enquero.skillmanagement.controller;
 
-import com.cofeeshop.model.Beverage;
-import com.cofeeshop.model.Customer;
-import com.cofeeshop.service.BeverageService;
+import com.enquero.skillmanagement.model.Beverage;
+import com.enquero.skillmanagement.service.BeverageService;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,4 +1,4 @@
-package com.cofeeshop;
+package com.enquero.skillmanagement;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

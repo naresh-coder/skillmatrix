@@ -1,7 +1,7 @@
-package com.cofeeshop.service;
+package com.enquero.prowessreef.service;
 
-import com.cofeeshop.model.Customer;
-import com.cofeeshop.repository.CustomerRepository;
+import com.enquero.prowessreef.model.Customer;
+import com.enquero.prowessreef.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,22 +1,19 @@
-package com.cofeeshop.controller;
+package com.enquero.prowessreef.controller;
 
-import com.cofeeshop.service.OrderService;
+import com.enquero.prowessreef.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @RestController
-@RequestMapping("/order")
+@RequestMapping("/admin")
 public class OrderController {
-
 
     @Autowired
     OrderService orderService;
-
 
     @PostMapping("create/{custName}/or/{mobile}/{beverages}")
     public String placeOrder(@PathVariable("custName") String custName,@PathVariable("mobile") String mobile,@PathVariable("beverages") String names){

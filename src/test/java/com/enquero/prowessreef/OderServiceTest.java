@@ -1,15 +1,12 @@
-package com.cofeeshop;
+package com.enquero.skillmanagement;
 
-import com.cofeeshop.model.Order;
-import com.cofeeshop.repository.OrderRepository;
-import com.cofeeshop.service.OrderService;
+import com.enquero.skillmanagement.repository.OrderRepository;
+import com.enquero.skillmanagement.service.OrderService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.HashSet;

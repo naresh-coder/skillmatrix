@@ -1,4 +1,4 @@
-package com.cofeeshop.model;
+package com.enquero.prowessreef.model;
 
 import java.io.Serializable;
 import javax.persistence.*;

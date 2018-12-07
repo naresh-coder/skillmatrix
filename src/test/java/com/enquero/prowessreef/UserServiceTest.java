@@ -1,18 +1,14 @@
-package com.cofeeshop;
+package com.enquero.prowessreef;
 
-import com.cofeeshop.model.Customer;
-import com.cofeeshop.repository.CustomerRepository;
-import com.cofeeshop.repository.OrderRepository;
-import com.cofeeshop.service.CustomerService;
-import com.cofeeshop.service.OrderService;
+import com.enquero.prowessreef.model.Customer;
+import com.enquero.prowessreef.repository.CustomerRepository;
+import com.enquero.prowessreef.service.CustomerService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import java.util.HashSet;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

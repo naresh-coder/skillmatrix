@@ -1,7 +1,7 @@
-package com.cofeeshop.controller;
+package com.enquero.prowessreef.controller;
 
-import com.cofeeshop.model.Customer;
-import com.cofeeshop.service.CustomerService;
+import com.enquero.prowessreef.model.Customer;
+import com.enquero.prowessreef.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

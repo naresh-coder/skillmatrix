@@ -1,6 +1,6 @@
-package com.cofeeshop.repository;
+package com.enquero.prowessreef.repository;
 
-import com.cofeeshop.model.Customer;
+import com.enquero.prowessreef.model.Customer;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

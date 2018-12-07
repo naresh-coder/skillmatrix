@@ -1,14 +1,11 @@
-package com.cofeeshop.service;
+package com.enquero.skillmanagement.service;
 
-import com.cofeeshop.model.Beverage;
-import com.cofeeshop.model.Customer;
-import com.cofeeshop.repository.BeverageRepository;
-import com.cofeeshop.repository.CustomerRepository;
+import com.enquero.skillmanagement.model.Beverage;
+import com.enquero.skillmanagement.repository.BeverageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.List;
 import java.util.Set;
 
 @Service
