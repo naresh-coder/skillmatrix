@@ -28,9 +28,14 @@ public class AdminController {
     return new ResponseEntity<>(HttpStatus.OK);
   }
 
+  @GetMapping("employee/{empl_id}/overview")
+  public ResponseEntity<Void> employeeOverview(@PathVariable("empl_id") Integer userId) {
+    employeeService.getEmplOverview(userId);
+    return new ResponseEntity<>(HttpStatus.OK);
+  }
 
 
-  @DeleteMapping("{emp_id}/or/{name}")
+    @DeleteMapping("{emp_id}/or/{name}")
   public ResponseEntity<Void> remove(@PathVariable("emp_id") Integer userId, @PathVariable("name") String name) {
     employeeService.removeUser(userId, name);
     return new ResponseEntity<>(HttpStatus.OK);

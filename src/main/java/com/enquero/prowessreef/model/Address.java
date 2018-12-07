@@ -73,7 +73,7 @@ public class Address implements java.io.Serializable {
 		this.employee = employee;
 	}
 
-	@Column(name = "address_name")
+	@Column(name = "address2")
 
 	public String getAddressName() {
 		return this.addressName;

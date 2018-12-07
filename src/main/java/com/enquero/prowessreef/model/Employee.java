@@ -14,7 +14,9 @@ public class Employee {
 
 
   @Id
-//  @GeneratedValue
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_id_seq")
+  @SequenceGenerator(name = "employee_id_seq", sequenceName = "employee_id_seq", allocationSize = 1)
+  @Column(name = "EMPLOYEE_ID", unique = true, nullable = false)
   private Integer employeeId;
   @JsonProperty
   private String name;
