@@ -1,39 +1,38 @@
 package com.enquero.prowessreef.service;
 
-import com.enquero.prowessreef.model.Customer;
-import com.enquero.prowessreef.repository.CustomerRepository;
+import com.enquero.prowessreef.model.User;
+import com.enquero.prowessreef.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 
 @Service
 @Transactional
-public class CustomerService {
+public class UserService {
 
     @Autowired
-    private CustomerRepository customerRepository;
+    private UserRepository userRepository;
 
-    public Customer findCustomerByFullNameOrMobile(String name, String mobile){
-        return customerRepository.findCustomerByFullNameOrMobile(name,mobile);
+    public User findUserByUserIdOrFullName(String userId, String name){
+        return userRepository.findUserByUserIdOrFullName(userId, name);
     }
 
-    public void createCustomer(Customer customer){
-        customerRepository.save(customer);
+    public void createUser(User user){
+        userRepository.save(user);
     }
 
-    public void updateCustomer(Customer customer){
-        Customer customer1 = this.findCustomerByFullNameOrMobile(customer.getFullName(),customer.getMobile());
-        customer1.setFirstName(customer.getFirstName());
-        customer1.setLastName(customer.getLastName());
-        customer1.setMobile(customer.getMobile());
-        customer1.setEmail(customer.getEmail());
-        customerRepository.save(customer1);
+    public String updateUser(String userId, User user){
+        User oldUser = this.findUserByUserIdOrFullName(userId, "");
+        userRepository.save(user);
+        //TODO: temp code
+        return "success";
     }
 
-    public void removeCustomer(String name, String mobile){
-        Customer customer1 = this.findCustomerByFullNameOrMobile(name,mobile);
-        customerRepository.delete(customer1);
+    public void removeUser(String userId, String name){
+        User user1 = this.findUserByUserIdOrFullName(userId,name);
+        userRepository.delete(user1);
     }
-
 }

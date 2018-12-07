@@ -1,4 +1,4 @@
-package com.enquero.skillmanagement;
+package com.enquero.prowessreef;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

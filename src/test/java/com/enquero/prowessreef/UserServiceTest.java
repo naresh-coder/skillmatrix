@@ -1,8 +1,8 @@
 package com.enquero.prowessreef;
 
-import com.enquero.prowessreef.model.Customer;
-import com.enquero.prowessreef.repository.CustomerRepository;
-import com.enquero.prowessreef.service.CustomerService;
+import com.enquero.prowessreef.model.User;
+import com.enquero.prowessreef.repository.UserRepository;
+import com.enquero.prowessreef.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -12,20 +12,20 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class CustomerServiceTest {
+public class UserServiceTest {
 
 
     @Mock
-    private CustomerRepository customerRepository;
+    private UserRepository userRepository;
 
     @InjectMocks
-    private CustomerService customerService;
+    private UserService userService;
 
 
     @Test
     public void  testSave(){
-        Customer customer = new Customer();
-        customerService.createCustomer(customer);
+        User user = new User();
+        userService.createUser(user);
 
     }
 

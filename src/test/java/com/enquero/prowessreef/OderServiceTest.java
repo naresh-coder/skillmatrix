@@ -1,7 +1,5 @@
-package com.enquero.skillmanagement;
+package com.enquero.prowessreef;
 
-import com.enquero.skillmanagement.repository.OrderRepository;
-import com.enquero.skillmanagement.service.OrderService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -15,19 +13,19 @@ import java.util.HashSet;
 @SpringBootTest
 public class OderServiceTest {
 
-    @Mock
-    private OrderRepository orderRepository;
-
-    @InjectMocks
-    private OrderService orderService;
-
-
-
-
-
-    @Test
-    public void  testSave(){
-        orderService.cancelOrder("tets","stest",new HashSet<>());
-
-    }
+//    @Mock
+//    private OrderRepository orderRepository;
+//
+//    @InjectMocks
+//    private OrderService orderService;
+//
+//
+//
+//
+//
+//    @Test
+//    public void  testSave(){
+//        orderService.cancelOrder("tets","stest",new HashSet<>());
+//
+//    }
 }

@@ -1,39 +1,31 @@
 package com.enquero.prowessreef.controller;
 
-import com.enquero.prowessreef.model.Customer;
-import com.enquero.prowessreef.service.CustomerService;
+import com.enquero.prowessreef.model.User;
+import com.enquero.prowessreef.service.UserService;
+import com.sun.org.apache.regexp.internal.RE;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
 
 @RestController
-@RequestMapping("/customer/service")
-public class CustomerController {
+@RequestMapping("/user/")
+public class UserController {
   @Autowired
-  private CustomerService customerService;
+  private UserService userService;
 
-  @GetMapping("v1/{name}/or/{mobile}")
+  @GetMapping("{user_id}/or/{name}")
   @ResponseBody
-  public Customer getCustomer(@PathParam("name") String name, @PathParam("mobile") String mobile){
-      return customerService.findCustomerByFullNameOrMobile(name,mobile);
+  public ResponseEntity<User> getUserDetails(@PathParam("user_id") String userId, @PathParam("name") String name) {
+   return new ResponseEntity<>(userService.findUserByUserIdOrFullName(userId, name),HttpStatus.OK);
   }
 
-  @PostMapping("/save")
-  public String createCustomer(@RequestBody Customer customer){
-      customerService.createCustomer(customer);
-      return "";
+  @PutMapping("{user_id}")
+  public ResponseEntity<String> updateUser(@PathParam("user_id") String userId, @RequestBody User user) {
+    return new ResponseEntity<>(userService.updateUser(userId, user), HttpStatus.OK);
   }
 
-  @PutMapping("/update")
-   public String updateCustomer(@RequestBody Customer customer){
-    customerService.updateCustomer(customer);
-     return "";
-    }
-    @DeleteMapping("delete/{name}/or/{mobile}")
-    public String remove(@PathParam("name") String name, @PathParam("mobile") String mobile){
-        customerService.removeCustomer(name,mobile);
-        return "";
-    }
 
 }

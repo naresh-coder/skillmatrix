@@ -10,18 +10,18 @@ import java.util.Set;
  * 
  */
 @Entity
-public class Customer implements Serializable {
+public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="customer_id")
-	private int customerId;
+//	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@Column(name="user_id")
+	private int userId;
 
-	@Column(name="customer_type")
-	private String customerType;
-
-	private String email;
+//	@Column(name="customer_type")
+//	private String customerType;
+//
+//	private String email;
 
 	@Column(name="first_name")
 	private String firstName;
@@ -34,43 +34,20 @@ public class Customer implements Serializable {
 
 	private String mobile;
 
-	//bi-directional many-to-many association to Beverage
-	@ManyToMany(mappedBy="customers")
-	private Set<Beverage> beverages;
-
-	//bi-directional many-to-one association to Order
-	@OneToMany(mappedBy="customer")
-	private Set<Order> orders;
-
-	public Customer() {
+	public static long getSerialVersionUID() {
+		return serialVersionUID;
 	}
 
-	public int getCustomerId() {
-		return this.customerId;
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setCustomerId(int customerId) {
-		this.customerId = customerId;
-	}
-
-	public String getCustomerType() {
-		return this.customerType;
-	}
-
-	public void setCustomerType(String customerType) {
-		this.customerType = customerType;
-	}
-
-	public String getEmail() {
-		return this.email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public String getFirstName() {
-		return this.firstName;
+		return firstName;
 	}
 
 	public void setFirstName(String firstName) {
@@ -78,7 +55,7 @@ public class Customer implements Serializable {
 	}
 
 	public String getFullName() {
-		return this.fullName;
+		return fullName;
 	}
 
 	public void setFullName(String fullName) {
@@ -86,7 +63,7 @@ public class Customer implements Serializable {
 	}
 
 	public String getLastName() {
-		return this.lastName;
+		return lastName;
 	}
 
 	public void setLastName(String lastName) {
@@ -94,43 +71,10 @@ public class Customer implements Serializable {
 	}
 
 	public String getMobile() {
-		return this.mobile;
+		return mobile;
 	}
 
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
-
-	public Set<Beverage> getBeverages() {
-		return this.beverages;
-	}
-
-	public void setBeverages(Set<Beverage> beverages) {
-		this.beverages = beverages;
-	}
-
-	public Set<Order> getOrders() {
-		return this.orders;
-	}
-
-	public void setOrders(Set<Order> orders) {
-		this.orders = orders;
-	}
-
-	public Order addOrder(Order order) {
-		getOrders().add(order);
-		order.setCustomer(this);
-
-		return order;
-	}
-
-	public Order removeOrder(Order order) {
-		getOrders().remove(order);
-		order.setCustomer(null);
-
-		return order;
-	}
-
-
-
 }
