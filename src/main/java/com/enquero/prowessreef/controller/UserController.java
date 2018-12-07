@@ -1,31 +1,29 @@
 package com.enquero.prowessreef.controller;
 
-import com.enquero.prowessreef.model.User;
-import com.enquero.prowessreef.service.UserService;
-import com.sun.org.apache.regexp.internal.RE;
+import com.enquero.prowessreef.model.Employee;
+import com.enquero.prowessreef.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.server.PathParam;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
-@RequestMapping("/user/")
+@RequestMapping("/employee/")
 public class UserController {
   @Autowired
-  private UserService userService;
+  private EmployeeService employeeService;
 
-  @GetMapping("{user_id}/or/{name}")
+  @GetMapping("{emp_id}/or/{name}")
   @ResponseBody
-  public ResponseEntity<User> getUserDetails(@PathParam("user_id") String userId, @PathParam("name") String name) {
-   return new ResponseEntity<>(userService.findUserByUserIdOrFullName(userId, name),HttpStatus.OK);
+  public ResponseEntity<Employee> getUserDetails(@PathVariable("emp_id") Integer userId, @PathVariable("name") String name) {
+   return new ResponseEntity<>(employeeService.findByEmployeeIdOrName(userId, name),HttpStatus.OK);
   }
 
-  @PutMapping("{user_id}")
-  public ResponseEntity<String> updateUser(@PathParam("user_id") String userId, @RequestBody User user) {
-    return new ResponseEntity<>(userService.updateUser(userId, user), HttpStatus.OK);
+  @PutMapping("{emp_id")
+  public ResponseEntity<String> updateUser(@PathVariable("emp_id") Integer userId, @RequestBody Employee employee) {
+    return new ResponseEntity<String>(employeeService.updateEmployee(userId, employee), HttpStatus.OK);
   }
-
 
 }
